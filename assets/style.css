@@ -1,50 +1,37 @@
-body {
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+body{
     background: #fff;
     color: #000;
-    padding: 25px;
-    font-family: sans-serif;
-  }
-  body header h1{
-     position: absolute;
-     top: 0%;
-     left: 50%;
-  }
+}
+.hero, header, h1{
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+form{
+    width: 90%;
+    max-width: 600px;
+}
 .input-group{
-    margin-top: 10px;
     margin-bottom: 10px;
+}
+input, textarea{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #000;
+    font-size: 15px;
+}
+#submit{
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
     
 }
-
-
-input {
-    background-color: white;
-    border-radius: 5px;
-    border-width: 1px;
-    color: black; 
-    font-size: 15px;
-    height: 20px;
-    margin: 0px;
-    margin-top: 10px;
-    padding: 5px 5px 5px 5px;
-    width: 99%;
-   
-}
-#content{
-    height: 100px;
-}
-
-
-button {
-    background-color: #000;
-    border-radius: 3px;
-    border-width: 1px;
-    color: #fff;
-    font-size: 1.1em;
-    height: 45px;
-    line-height: 20px;
-    margin: 0;
-    margin-top: 10px;
-    max-width: 100%;
-    padding: 8px 8px 8px 8px;
-    width: 100%;
-  }
