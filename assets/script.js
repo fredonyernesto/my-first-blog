@@ -36,3 +36,5 @@ submitButton.addEventListener('click', function (event){
 
    localStorage.setItem('user', JSON.stringify(user));
 });
+
+//deleted preview
