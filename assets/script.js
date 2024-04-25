@@ -20,20 +20,20 @@ submitButton.addEventListener('click', function (event){
     };
 
     // set new submission to local storage
-    if(username === ''){
+    if(user.username === ''){
         displayMessage('error', 'Username cannot be blank');
-    } else if (title === ''){
+    } else if (user.title === ''){
         displayMessage('error', 'Title cannot be blank');
-    } else if (content === ''){
+    } else if (user.content === ''){
         displayMessage('error', 'Content cannot be blank');
     } else {
         displayMessage("success", "Creating your blog entry now!")
+        setTimeout(function(){
+            window.location.href="./assets/main/main.html";
+        }, 2000);    
     }
 
-    setTimeout(function(){
-        window.location.href="./assets/main/main.html";
-    }, 2000);
-
+    
    localStorage.setItem('user', JSON.stringify(user));
 });
 
