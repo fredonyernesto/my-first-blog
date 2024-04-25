@@ -31,7 +31,7 @@ submitButton.addEventListener('click', function (event){
     }
 
     setTimeout(function(){
-        window.location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        window.location.href="./assets/main/main.html";
     }, 2000);
 
    localStorage.setItem('user', JSON.stringify(user));
