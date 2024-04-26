@@ -1,8 +1,8 @@
 const submitButton = document.querySelector('#submit');
 const usernameEntry = document.querySelector('#username');
-const msgDiv = document.querySelector('#msg')
+const msgDiv = document.querySelector('#msg');
 const titleEntry = document.querySelector('#title');
-const commentEntry = document.querySelector('#content')
+const commentEntry = document.querySelector('#content');
 
 function displayMessage(type, message){
     msgDiv.textContent = message;
@@ -19,6 +19,15 @@ submitButton.addEventListener('click', function (event){
         content: commentEntry.value.trim(),
     };
 
+    // Retrieve existing entries from local storage
+    let allEntries = JSON.parse(localStorage.getItem('entries')) || [];
+
+    // Add the new entry to the existing entries
+    allEntries.push(user);
+
+    // Save the updated entries back to local storage
+    localStorage.setItem('entries', JSON.stringify(allEntries));
+
     // set new submission to local storage
     if(user.username === ''){
         displayMessage('error', 'Username cannot be blank');
@@ -29,12 +38,7 @@ submitButton.addEventListener('click', function (event){
     } else {
         displayMessage("success", "Creating your blog entry now!")
         setTimeout(function(){
-            window.location.href="./assets/main/main.html";
+            window.location.href = "./assets/main/main.html";
         }, 2000);    
     }
-
-    
-   localStorage.setItem('user', JSON.stringify(user));
 });
-
-//deleted preview
