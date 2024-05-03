@@ -52,25 +52,3 @@ input, textarea{
     
 }
 
-/*Message styles*/
-#msg{
-    visibility: hidden;
-    margin-top: 20px;
-    font-weight: 700;
-    height: 1.2em;
-    font-size: 1.2em;
-}
-#msg.success,
-#msg.error{
-    visibility: visible;
-}
-
-/*Success message*/
-#msg.success{
-    color: lightgreen;
-}
-
-/*Error message*/
-#msg.error{
-    color: red;
-}
