@@ -4,8 +4,7 @@ const inputContent = document.getElementById("content")
 const submitBttn = document.getElementById("submit")
 const warningMSG = document.getElementById("warning-msg")
 
-function saveInputToLocalStorage (event){
-    event.preventDefault();
+function saveInputToLocalStorage (){
 
     const userInput = {
         username: inputUsername.value.trim(),
@@ -13,13 +12,12 @@ function saveInputToLocalStorage (event){
         content: inputContent.value.trim(),
     };
 
-    if(userInput !== null){
-        warningMSG.style.color = "red"
-        warningMSG.innerText = "Please make sure to fill all fields."
-    }else{
-        localStorage.setItem('userInput', JSON.stringify(userInput));
-    }
+    localStorage.setItem('userInput', JSON.stringify(userInput));
     
 }
 
-submitBttn.addEventListener('click', saveInputToLocalStorage);
+submitBttn.addEventListener('click', function(event){
+    event.preventDefault();
+    saveInputToLocalStorage();
+    
+}); 
