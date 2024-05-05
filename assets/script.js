@@ -19,7 +19,7 @@ function saveInputToLocalStorage (event){
         content: inputContent.value.trim(),
     };
 
-    localStorage.setItem('userInput', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
     
     if(user.username === ''){
         displayWarning("Please fill in your username.")
