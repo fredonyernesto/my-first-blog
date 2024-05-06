@@ -1,6 +1,7 @@
 const blogPost = document.getElementById("blog-post");
 const blogEntry = document.getElementById("blog-entry");
 
+
 const entryS = [];
 
 
@@ -25,4 +26,9 @@ function getInputFromLocalStorage(){
         blogEntry.appendChild(li);
     });
 }
+
+    document.getElementById("back-button").addEventListener('click', () =>{
+        history.back();
+    });
+
 getInputFromLocalStorage();
