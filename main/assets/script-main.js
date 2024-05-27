@@ -10,6 +10,7 @@ function displayExistingEntries(){
         title.textContent = `Title: ${existingEntries[i].title}`
         const div = document.createElement('div');
         const content = document.createElement('p')
+        content.textContent = `Content: ${existingEntries[i].content}`
         div.append(username, title, content);
         blogPost.append(div);
     }

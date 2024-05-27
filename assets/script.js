@@ -10,36 +10,66 @@ function displayWarning(message){
     warningMSG.innerText = message;
 }
 
-function saveInputToLocalStorage (event){
+function saveInputToLocalStorage(event) {
     event.preventDefault();
-    
-    const user = {
+
+    let user = {
         username: inputUsername.value.trim(),
         title: inputTitle.value.trim(),
         content: inputContent.value.trim(),
     };
 
+    if (user.username === '') {
+        displayWarning("Please fill in your username.");
+    } else if (user.title === '') {
+        displayWarning("Please add a title.");
+    } else if (user.content === '') {
+        displayWarning("Please provide content for your submission.");
+    } else {
+        // Retrieve existing entries from localStorage
+        const existingEntries = JSON.parse(localStorage.getItem('userEntries')) || [];
 
-    localStorage.setItem('user', JSON.stringify(user));
+        // Add the new entry
+        existingEntries.push(user);
 
-    if(user.username === ''){
-        displayWarning("Please fill in your username.")
-    } else if(user.title === ''){
-        displayWarning("Please add a title.")
-    } else if(user.content === ''){
-        displayWarning("Please provide content for your submission.")
-    } else{
-        setTimeout(function (){
-            let moveWindow;
-            let confirmWindow = confirm("Are you sure you want to submit this information?");
-            if(confirmWindow === false){
-                clearTimeout();
-            } else {
-                moveWindow = window.location.href="./main/main.html";
-                confirmWindow = moveWindow; 
-            }
-        },1000)
+        // Save updated entries back to localStorage
+        localStorage.setItem('userEntries', JSON.stringify(existingEntries));
+
+        // Reset all forms
+        document.querySelectorAll("form").forEach(form => form.reset());
+
+        // Redirect to another page
+        window.location.href = "./main/main.html";
     }
 }
 
+
 submitBttn.addEventListener('click', saveInputToLocalStorage);
+
+// let blogPost = document.getElementById("blog-post");
+// const blogEntry = document.getElementById("blog-entry");
+
+// let entryS = [];
+
+// function getInputFromLocalStorage(){
+//     const storedData = localStorage.getItem('user')
+
+//     if(storedData){
+//         const userData = JSON.parse(storedData);
+//         entryS.push(userData);
+//     }
+
+//     blogEntry.innerHTML = '';
+
+//     entryS.forEach(entry => {
+//         let li = document.createElement('li');
+
+//         li.innerHTML = `
+//             <p>Title: ${entry.title}</p>
+//             <p>Author: ${entry.username}</p>
+//             <p>Content: ${entry.content}</p>
+//         `;
+//         blogEntry.appendChild(li);
+//     });
+// }
+// getInputFromLocalStorage();
