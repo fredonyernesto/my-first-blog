@@ -1,28 +1,20 @@
-const blogPost = document.getElementById("blog-post");
-const blogEntry = document.getElementById("blog-entry");
+const existingEntries = JSON.parse(localStorage.getItem('userEntries')) || [];
 
-const entryS = [];
-
-
-function getInputFromLocalStorage(){
-    const storedData = localStorage.getItem('user')
-
-    if(storedData){
-        const userData = JSON.parse(storedData);
-        entryS.push(userData);
+function displayExistingEntries(){
+    const blogPost = document.getElementById("blog-post");
+    blogPost.innerHTML = '';
+    for (let i=0; i < existingEntries.length; i++){
+        const username = document.createElement('h3');
+        username.textContent = `Username: ${existingEntries[i].username}`
+        const title = document.createElement('h2');
+        title.textContent = `Title: ${existingEntries[i].title}`
+        const div = document.createElement('div');
+        const content = document.createElement('p')
+        div.append(username, title, content);
+        blogPost.append(div);
     }
+};
 
-    blogEntry.innerHTML = '';
-
-    entryS.forEach(entry => {
-        const li = document.createElement('li');
-
-        li.innerHTML = `
-            <p>Title: ${entry.title}</p>
-            <p>Author: ${entry.username}</p>
-            <p>Content: ${entry.content}</p>
-        `;
-        blogEntry.appendChild(li);
-    });
-}
-getInputFromLocalStorage();
+window.onload = function(){
+    displayExistingEntries();
+};
