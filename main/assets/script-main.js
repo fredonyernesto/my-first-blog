@@ -1,6 +1,5 @@
 const existingEntries = JSON.parse(localStorage.getItem('userEntries')) || [];
 
-
 function displayExistingEntries(){
     const blogPost = document.getElementById("blog-post");
     blogPost.innerHTML = '';
@@ -18,12 +17,10 @@ function displayExistingEntries(){
     }
 };
 
-
-
 window.onload = function(){
     displayExistingEntries();
 };
 
 document.getElementById("back-button").addEventListener("click", () => {
     history.back();
-});
+}); 

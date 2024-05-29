@@ -43,33 +43,10 @@ function saveInputToLocalStorage(event) {
     }
 }
 
+document.querySelector("div > button").addEventListener('click', () =>{
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+});
 
 submitBttn.addEventListener('click', saveInputToLocalStorage);
 
-// let blogPost = document.getElementById("blog-post");
-// const blogEntry = document.getElementById("blog-entry");
-
-// let entryS = [];
-
-// function getInputFromLocalStorage(){
-//     const storedData = localStorage.getItem('user')
-
-//     if(storedData){
-//         const userData = JSON.parse(storedData);
-//         entryS.push(userData);
-//     }
-
-//     blogEntry.innerHTML = '';
-
-//     entryS.forEach(entry => {
-//         let li = document.createElement('li');
-
-//         li.innerHTML = `
-//             <p>Title: ${entry.title}</p>
-//             <p>Author: ${entry.username}</p>
-//             <p>Content: ${entry.content}</p>
-//         `;
-//         blogEntry.appendChild(li);
-//     });
-// }
-// getInputFromLocalStorage();
