@@ -24,3 +24,8 @@ window.onload = function(){
 document.getElementById("back-button").addEventListener("click", () => {
     history.back();
 }); 
+
+document.querySelector("#dark-mode-function > button").addEventListener('click', () =>{
+    let element = document.body;
+    element.classList.toggle("dark-mode");
+});
